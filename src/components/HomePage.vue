@@ -12,14 +12,14 @@
         </lottie-vue-player> 
       </v-col>
       <v-col xl="6" lg="6" md="6" cols="12" style="padding-top: 0px;padding-bottom: 0px;">
-        <v-row :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'left_side_page' : 'testar'">
+        <v-row :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'right_side_page' : ''">
           <v-col xl="7" lg="7" md="7" cols="12" class="message_col">
             <v-row class="text-left" style="background-color:#47b1e3;">
               <v-col v-if="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md" cols="3"/>
 
               <v-col xl="8" lg="8" md="8" cols="12">
                 <v-card class="message_card" flat rounded="0">
-                  <h2 class="font-weight-bold white--text" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'mt-10' : ''">
+                  <h2 class="font-weight-bold white--text mt-10">
                     website em desenvolvimento...
                   </h2>
                   <h3 class="my-4 subheading white--text font-weight-regular white--text">
@@ -34,9 +34,8 @@
                           mdi-phone
                       </v-icon>
                     </v-col>
-                    <v-col class="mt-n1" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? '' : 'ml-n4'">
+                    <v-col class="mt-2" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? '' : 'ml-n4'">
                       <strong class="white--text">933 012 704</strong>
-                      <p class="white--text"><strong>253 713 327</strong></p>
                     </v-col>
                   </v-row>
                   <v-row class="mt-n4">
@@ -61,7 +60,7 @@
                       </p>
                     </v-col>
                   </v-row>
-                  <v-row class="mt-n4 mb-4">
+                  <v-row class="mt-n9 mb-4">
                     <v-col :cols="$vuetify.breakpoint.sm ? 1 : 2">
                       <v-icon x-large class="white--text">
                         mdi-clock-time-four-outline
@@ -69,7 +68,7 @@
                     </v-col>
                     <v-col class="mt-2" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? '' : 'ml-n4'">
                       <strong class="white--text">
-                        Seg-Sex: 8h30-18h00
+                        Seg-Sex: 9h30-18h00
                       </strong>
                     </v-col>
                   </v-row>
@@ -196,7 +195,7 @@
         }, 200);
       });
         
-      setTimeout(this.signal_pause, 5000)
+      setTimeout(this.signal_pause, 1000)
     },
     
     watch: {
@@ -204,35 +203,17 @@
         const l = this.loader
         this[l] = !this[l]
         console.log()
-        //this.send_email
-        //setTimeout(() => (this[l] = false), 3000)
         this.loader = null
       }
     },
 
     methods:{
-      test(){
-        console.log(this.$refs.lottie)
-      }, 
-    /*  onResize(){
-        if(this.breakpoint == '')
-          this.breakpoint = this.$vuetify.breakpoint.name
-        if((this.$vuetify.breakpoint.name == "xl" || this.$vuetify.breakpoint.name == "lg" || this.$vuetify.breakpoint.name == "md") && (this.breakpoint == "sm" || this.breakpoint == "xs")){
-          const elem = document.getElementsByClassName('testar')
-          elem.style.opacity = "0"
-          this.breakpoint = this.$vuetify.breakpoint.name
-        }
-        else if((this.$vuetify.breakpoint.name == "xs" || this.$vuetify.breakpoint.name == "sm") && (this.breakpoint == "xl" || this.breakpoint == "lg" || this.breakpoint == "md")){
-          const elem = document.getElementsByClassName('testar')
-          elem.style.visibility = "1"
-          this.breakpoint = this.$vuetify.breakpoint.name
-        }
-      }, */
       signal_pause(){
         console.log(this.$refs.lottie.getLottie().currentFrame)
-        if(this.$refs.lottie.getLottie().currentFrame < 237.0){
+
+        if(this.$refs.lottie.getLottie().currentFrame < 87.0){
           this.currentFrame = this.$refs.lottie.getLottie().currentFrame
-          setTimeout(this.signal_pause, 5000)
+          setTimeout(this.signal_pause, 1000)
         }
         else{
           this.currentFrame = this.$refs.lottie.getLottie().currentFrame
@@ -267,7 +248,7 @@
 </script>
 <style>
 
-.left_side_page{
+.right_side_page{
   position: relative; 
   overflow: auto; 
   height: 100%;
