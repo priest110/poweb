@@ -19,9 +19,6 @@ export default {
   data: () => ({
   }),
 
-   mounted() {
-    document.title = "POWEB";
-  }
 };
 </script>
 <style>

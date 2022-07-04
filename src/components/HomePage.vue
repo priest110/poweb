@@ -72,6 +72,7 @@
                       </strong>
                     </v-col>
                   </v-row>
+                  <div class="mb-10">
                   <v-btn class="mr-4" icon href="http://www.facebook.com/wearePOWEB" target="_blank">
                     <v-icon x-large class="white--text">
                       mdi-facebook
@@ -92,6 +93,7 @@
                       mdi-twitter
                     </v-icon>
                   </v-btn>
+                  </div>
                 </v-card>
               </v-col>
                 
