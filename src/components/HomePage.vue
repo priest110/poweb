@@ -1,18 +1,46 @@
 <template>
   <v-container class="principal fluid">
     <v-row class="text-center" style="height:100%; margin-bottom: 0px; margin-top: 0px;">
-      <v-col xl="6" lg="6" md="6" cols="12">
-        <lottie-vue-player src="logo/data.json"
-          :theme="options.theme"
-          :player-size="options.playerSize"
-          autoplay
-          style="width: 100%; height:100%"
-          ref="lottie" 
-          id="logo"
-          class="animation_logo logo_poweb">
-        </lottie-vue-player> 
+      <v-col xl="6" lg="6" md="6" cols="12" :style="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm ? 'min-height:650px' : ''">
+        <v-row style="height:100%">
+          <v-col xl="11" lg="11" md="11" cols="12">
+          <lottie-vue-player src="logo/data.json"
+            :theme="options.theme"
+            :player-size="options.playerSize"
+            autoplay
+            style="width: 100%; height:100%"
+            ref="lottie" 
+            id="logo"
+            class="animation_logo logo_poweb">
+          </lottie-vue-player> 
+          </v-col>
+          <v-col v-if="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md" cols="1">
+            <div class="animation_icons social_icons" style="display:inline-flex; position: relative; top: 90%;">
+              <v-btn style="margin-right:1vw" icon href="http://www.facebook.com/wearePOWEB" target="_blank">
+                <v-icon x-large class="white--text icon_size">
+                  mdi-facebook
+                </v-icon>
+              </v-btn>
+              <v-btn style="margin-right:1vw" icon href="http://www.instagram.com/wearepoweb/" target="_blank">
+                <v-icon x-large class="white--text icon_size">
+                  mdi-instagram
+                </v-icon>
+              </v-btn>
+              <v-btn style="margin-right:1vw" icon href="http://www.linkedin.com/company/powebmedia/" target="_blank">
+                <v-icon x-large class="white--text icon_size">
+                  mdi-linkedin
+                </v-icon>
+              </v-btn>
+              <v-btn icon href="http://www.twitter.com/wearePOWEB" target="_blank">
+                <v-icon x-large class="white--text icon_size">
+                  mdi-twitter
+                </v-icon>
+              </v-btn>
+            </div>
+          </v-col>
+        </v-row>
       </v-col>
-      <v-col xl="6" lg="6" md="6" cols="12" style="padding-top: 0px;padding-bottom: 0px; padding-left: 0px;">
+      <v-col xl="6" lg="6" md="6" cols="12" style="padding-top: 0px;padding-bottom: 0px; padding-left: 0px;" :class="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm ? 'resize_col_padding' : ''">
         <v-row :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'right_side_page' : ''">
           <v-col xl="6" lg="6" md="7" cols="12" class="message_col animation_message"  style="background-color: #47b1e3 !important;">
             <v-row class="text-left">
@@ -34,16 +62,14 @@
                   <h1 class="font-weight-bold white--text">
                     Vamos trabalhar em conjunto!
                   </h1>
-                  <v-btn id="open_button" v-if="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md" fab color="transparent" style="left: 106%; top: -10%;" @click="show_form()">
-                    <img src="../assets/Mensager.svg" height="60" width="60" />
-                  </v-btn>
+                  <v-btn id="open_button" v-if="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md" fab color="transparent" style="left: 106%; top: -10%;" @click="show_form()"></v-btn>
                   <div :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'info_icons' : ''">
                     <v-row>
                       <v-col :cols="$vuetify.breakpoint.sm ? 1 : 2">
                         <v-icon v-if="$vuetify.breakpoint.md" large class="white--text">
                             mdi-phone
                         </v-icon>
-                        <v-icon v-else x-large class="white--text">
+                        <v-icon v-else x-large class="white--text icon_size">
                             mdi-phone
                         </v-icon>
                       </v-col>
@@ -56,7 +82,7 @@
                         <v-icon v-if="$vuetify.breakpoint.md" large class="white--text">
                             mdi-email
                         </v-icon>
-                        <v-icon v-else x-large class="white--text">
+                        <v-icon v-else x-large class="white--text icon_size">
                             mdi-email
                         </v-icon>
                       </v-col>
@@ -69,7 +95,7 @@
                         <v-icon v-if="$vuetify.breakpoint.md" large class="white--text">
                           mdi-map-marker
                         </v-icon>
-                        <v-icon v-else x-large class="white--text">
+                        <v-icon v-else x-large class="white--text icon_size">
                           mdi-map-marker
                         </v-icon>
                       </v-col>
@@ -92,7 +118,7 @@
                         <v-icon v-if="$vuetify.breakpoint.md" large class="white--text">
                           mdi-clock-time-four-outline
                         </v-icon>
-                        <v-icon v-else x-large class="white--text">
+                        <v-icon v-else x-large class="white--text icon_size">
                           mdi-clock-time-four-outline
                         </v-icon>
                       </v-col>
@@ -103,7 +129,7 @@
                       </v-col>
                     </v-row>
                   </div>
-                  <div class="animation_icons social_icons" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? '' : 'mt-8'">
+                  <div  v-if="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm" class="animation_icons social_icons mt-8">
                     <v-btn class="mr-4" icon href="http://www.facebook.com/wearePOWEB" target="_blank">
                       <v-icon x-large class="white--text">
                         mdi-facebook
@@ -135,26 +161,26 @@
             <v-card id="form_card" color="white" flat rounded="0">
               <v-form ref="form" v-model="form_valid" lazy-validation @submit.prevent="send_email">
                 <v-card-actions v-if="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md" class="justify-end">
-                  <v-btn icon class="grey--text" color="#47b1e3" @click="close_form()">
-                    <v-icon>
+                  <v-btn id="close_button" icon class="grey--text" color="#47b1e3" @click="close_form()">
+                    <v-icon class="icon_size">
                       mdi-close
                     </v-icon>
                   </v-btn>
                 </v-card-actions>
                 <v-card-text :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? 'my-n4' : ''">
-                  <v-text-field label="Nome*" name="nome" v-model="nome" :rules="general_rules" required>
+                  <v-text-field class="text_field" label="Nome*" name="nome" v-model="nome" :rules="general_rules" required>
                   </v-text-field>
-                  <v-text-field label="Telefone" name="telefone" v-model="telefone" :rules="telefone_rules">
+                  <v-text-field class="text_field" label="Telefone" name="telefone" v-model="telefone" :rules="telefone_rules">
                   </v-text-field>
-                  <v-text-field label="Email*" name="email" v-model="email" :rules="email_rules" required>
+                  <v-text-field class="text_field" label="Email*" name="email" v-model="email" :rules="email_rules" required>
                   </v-text-field>
-                  <v-text-field label="Assunto*" name="assunto" v-model="assunto" :rules="general_rules" required>
+                  <v-text-field class="text_field" label="Assunto*" name="assunto" v-model="assunto" :rules="general_rules" required>
                   </v-text-field>
                   <v-textarea label="Mensagem*" name="mensagem" v-model="mensagem" :rules="general_rules" required>
                   </v-textarea>
                 </v-card-text>
                 <v-card-actions class="justify-center">
-                  <v-btn class="mt-n3 white--text" type="submit"  :disabled="!form_valid" color="#47b1e3">
+                  <v-btn id="send_button"  class="mt-n3 white--text" type="submit"  :disabled="!form_valid" color="#47b1e3">
                     Enviar
                   </v-btn>
                 </v-card-actions>
@@ -175,8 +201,6 @@
     name: 'HelloWorld',
 
     data: () => ({
-      loading: false,
-      logo_view : 'logo_view',
       nome: '',
       general_rules: [
         v => !!v || 'Campo obrigatório',
@@ -234,17 +258,11 @@
         resizeTimer = setTimeout(() => {
           document.getElementsByClassName('form_col')[0].style.display = "initial"
           document.getElementsByClassName('message_col')[0].style.display = "initial"
-          document.getElementsByClassName('social_icons')[0].style.display = "initial"
-          //document.getElementsByClassName('animation_button')[0].style.display = "initial"
-          //document.getElementsByClassName('animation_message')[0].style.display = "initial"
-
+          document.getElementsByClassName('social_icons')[0].style.display = "inline-flex"
           document.getElementsByClassName('message_col')[0].style.visibility = "visible"
           document.getElementsByClassName('social_icons')[0].style.visibility = "visible"
-          //document.getElementsByClassName('animation_button')[0].style.display = "visible"
-          //document.getElementsByClassName('animation_message')[0].style.display = "visible"
         }, 200);
       });
-        
       setTimeout(this.signal_pause, 1000)
     },
 
@@ -314,269 +332,326 @@
 </script>
 <style>
 
+/* Fixes responsive and size stuff in general */
 
-
-@media screen and (min-width: 960px) {
-  .logo_poweb{
-    left: 35%;
+  .manutencao{
+    left: -2%;
   }
-}
 
-
-.manutencao{
-  left: -2%;
-}
-
-
-.right_side_page{
-  position: relative; 
-  overflow: visible; 
-  left: -102.5%;
-  height: 100%;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-
-}
-
-@media screen and (min-width: 960px) {
-  .form_col{
-    position: absolute;
-    margin-top: 5%;
-    left: 30%;
-    visibility: hidden;
+  .right_side_page{
+    position: relative; 
+    overflow: visible; 
+    left: -100%;
+    height: 100%;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .message_col{
-    position: absolute;
-    left: 0%;
-    height:100%;
-    background-color: #47b1e3 !important;
-    visibility: hidden;
+  .message_card{
+    background-color: transparent !important;
+    height: 100%;
   }
-}
 
-/* * { border: 1px solid red; } */
-
-.message_card{
-  background-color: transparent !important;
-  height: 100%;
-}
-
-.principal{
-  margin-right: 0 !important;
-  padding-right: 0 !important;
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
-  height: 100%;
-  max-width: 100% !important;
-}
-
-/* Background da animação transparente */
-.vue-lottie-player{
-  background-color: transparent !important;
-}
-
-/* A regra keyframes serve para certa animação mudar de um certo estilo para outros */
-@keyframes change_logo {
-  0%   {left:25%;}
-  30%  {left:25%;}
-  50%  {left:25%;}
-  70%  {left:35%;}
-  100% {left:35%;}
-}
-
-@keyframes change_logo_after {
-  0%   {left:35%;}
-  100% {left:40%;}
-}
-
-@keyframes change_logo_before {
-  0%   {left:40%;}
-  100% {left:35%;}
-}
-
-@keyframes change_message {
-  0%   {left:-25%; visibility: hidden;}
-  50%  {left:25%; visibility: visible;}
-  100% {left:0; visibility: visible;}
-}
-
-@keyframes change_form {
-  0%   {transform: translate(0, 0) scale(0.1);visibility: hidden;}
-  100% {transform: translate(35%, 10%) scale(1);visibility: visible;}
-}
-
-@keyframes change_form_back {
-  0%   {transform: translate(35%, 10%) scale(1);visibility: visible;}
-  100% {transform: translate(0%, 0%) scale(0.1);visibility: hidden;}
-}
-
-@keyframes change_icons {
-  0%   {bottom:-25%; visibility: hidden;}
-  50%  {bottom:0%; visibility: visible;}
-  100% {bottom:0%; visibility: visible;}
-}
-
-@keyframes change_menu {
-  0%   {bottom:-25%; visibility: hidden;}
-  50%  {bottom:-15%; visibility: visible;}
-  100% {bottom:-15%; visibility: visible;}
-}
-
-@keyframes change_button {
-  0%   {scale: 1.25; visibility: visible;}
-  50%  {scale: 1.25; visibility: visible;}
-  100% {scale: 1.25; visibility: visible;}
-}
-
-@media screen and (min-width: 960px) {
-  .animation_logo{
-    animation-name: change_logo;
-    animation-duration: 7s;
-    animation-fill-mode: forwards;
+  .principal{
+    margin-right: 0 !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    height: 100%;
+    max-width: 100% !important;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_logo_after{
-    position: relative;
-    animation-name: change_logo_after;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  .vue-lottie-player{
+    background-color: transparent !important;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_logo_before{
-    position: relative;
-    animation-name: change_logo_before;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  .resize_col_padding{
+    padding-left: 12px !important;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_button{
-    position: relative;
-    animation-name: change_button;
-    animation-duration: 0.5s;
+  .lf-spinner{
+    visibility: hidden !important;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_message{
-    animation-name: change_message;
-    animation-delay:3s;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
+  #open_button{
+      background-image: url('../assets/Mensager.svg');
+      background-size: cover;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_form{
-    position: relative;
-    animation-name: change_form;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+/* Deals how animations work (the keyframes rule is for a certain animation to change from a certain style to another) */
+  
+  @keyframes change_logo {
+    0%   {left:30%;}
+    30%  {left:30%;}
+    50%  {left:30%;}
+    70%  {left:40%;}
+    100% {left:40%;}
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_form_back{
-    position: relative;
-    animation-name: change_form_back;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  @keyframes change_logo_after {
+    0%   {left:40%;}
+    100% {left:45%;}
   }
-}
 
-@media screen and (min-width: 960px) {
-  .animation_icons{
-    animation-name: change_icons;
-    animation-delay: 6s;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+  @keyframes change_logo_before {
+    0%   {left:45%;}
+    100% {left:40%;}
   }
-}
-/*
-@media screen and (min-width:960px) {
-  .info_text{
-    font-size: 1.5vw !important;
-    line-height: normal;
-    margin-top: -2vh !important;
-  }
-  h1{
-    font-size: 3vw !important;  
-    line-height: normal;
-    margin-top: 6vh !important;
-  }
-  .info_icons{
-    font-size: 1.1vw !important;
-    line-height: normal;
-    margin-top: -2vh !important;
-  } 
-  .social_icons{
-    position: relative;
-    visibility: hidden;
-    left: 75vw;
-  }
-}
 
-@media screen and (min-width:1264px) {
-  .info_text{
-    font-size: 1.4vw !important;
-    line-height: normal;
-    margin-top: 2vh !important;
+  @keyframes change_message {
+    0%   {left:-25%; visibility: hidden;}
+    50%  {left:25%; visibility: visible;}
+    100% {left:0; visibility: visible;}
   }
-  h1{
-    font-size: 2.5vw !important;  
-    line-height: normal;
-    margin-top: 9vh !important;
-  }
-  .info_icons{
-    font-size: 0.9vw !important;
-    margin-top: 3vh !important;
-  } 
-  .social_icons{
-    left:80vw;
-  }
-}
-*/
-@media screen and (min-width:1560px) {
-  .info_text{
-    font-size: 1.4vw !important;
-    line-height: normal;
-    margin-top: 2vh !important;
-  }
-  h1{
-    font-size: 2.5vw !important;  
-    line-height: normal;
-    margin-top: 6vh !important;
-  }
-  .info_icons{
-    font-size: 0.9vw !important;
-    margin-top: 6vh !important;
-  } 
-  .social_icons{
-    left: 85vw;
-    top: 5vh;
-    position: relative;
-  }
-}
 
+  @keyframes change_form {
+    0%   {transform: translate(0, 0) scale(0.1);visibility: hidden;}
+    100% {transform: translate(35%, 5%) scale(1);visibility: visible;}
+  }
 
-.resize-animation-stopper :is(.animation_icons, .animation_logo, .animation_message) {
-  animation: none !important;
-  transition: none !important;
-}
-/* 
-   v-if="($vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md) && show || ($vuetify.breakpoint.sm || $vuetify.breakpoint.xs)" */
-.lf-spinner{
-  visibility: hidden !important;
-}
+  @keyframes change_form_back {
+    0%   {transform: translate(35%, 5%) scale(1);visibility: visible;}
+    100% {transform: translate(0%, 0%) scale(0.1);visibility: hidden;}
+  }
 
+  @keyframes change_icons {
+    0%   {top:95%; visibility: hidden;}
+    50%  {top:90%; visibility: visible;}
+    100% {top:90%; visibility: visible;}
+  }
 
- @import '../../node_modules/video.js/dist/video-js.css';
+  @keyframes change_menu {
+    0%   {bottom:-25%; visibility: hidden;}
+    50%  {bottom:-15%; visibility: visible;}
+    100% {bottom:-15%; visibility: visible;}
+  }
+
+  @keyframes change_button {
+    0%   {scale: 1.25; visibility: visible;}
+    50%  {scale: 1.25; visibility: visible;}
+    100% {scale: 1.25; visibility: visible;}
+  }
+
+/* Sets animations */
+
+  @media screen and (min-width: 960px) {
+    .animation_logo{
+      animation-name: change_logo;
+      animation-duration: 7s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_logo_after{
+      position: relative;
+      animation-name: change_logo_after;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_logo_before{
+      position: relative;
+      animation-name: change_logo_before;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_button{
+      position: relative;
+      animation-name: change_button;
+      animation-duration: 0.5s;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_message{
+      animation-name: change_message;
+      animation-delay:3s;
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_form{
+      position: relative;
+      animation-name: change_form;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_form_back{
+      position: relative;
+      animation-name: change_form_back;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .animation_icons{
+      animation-name: change_icons;
+      animation-delay: 6s;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+/* Fixes responsive and size stuff for min-width of 960px */
+
+  @media screen and (min-width:960px) {
+    .logo_poweb{
+      left: 40%;
+    }
+    .info_text{
+      font-size: 1.6vw!important;
+      line-height: normal;
+      margin-top: 2vh !important;
+    }
+    h1{
+      font-size: 3.4vw !important;  
+      line-height: normal;
+      margin-top: 6vh !important;
+    }
+    .info_icons{
+      font-size: 1.4vw !important;
+      margin-top: -1vh !important;
+    } 
+    .social_icons{
+      visibility: hidden;
+      left:30vw !important; 
+    }
+    .message_col{
+      position: absolute;
+      left: 0%;
+      height:100%;
+      background-color: #47b1e3 !important;
+      visibility: hidden;
+    }
+    .form_col{
+      position: absolute;
+      top: 6%;
+      left: 40%;
+      visibility: hidden;
+    }
+  }
+
+/* Fixes responsive and size stuff for min-width of 1264px */
+
+  @media screen and (min-width:1264px) {
+    .info_text{
+      font-size: 1.4vw!important;
+      line-height: normal;
+      margin-top: 2vh !important;
+    }
+    h1{
+      font-size: 3vw !important;  
+      line-height: normal;
+      margin-top: 6vh !important;
+    }
+    .info_icons{
+      font-size: 1vw !important;
+      margin-top: -1vh !important;
+    } 
+    .social_icons{
+      visibility: hidden;
+      left:35vw !important; 
+    }
+    .form_col{
+      left: 30%;
+    }
+  }
+
+/* Fixes responsive and size stuff for min-width of 1560px */
+
+  @media screen and (min-width:1560px) {
+    .info_text{
+      font-size: 1.4vw !important;
+      line-height: normal;
+      margin-top: 0.5vh !important;
+    }
+    h1{
+      font-size: 2.5vw !important;  
+      line-height: normal;
+      margin-top: 5vh !important;
+    }
+    .info_icons{
+      font-size: 0.9vw !important;
+      margin-top: 0vh !important;
+    } 
+    .social_icons{
+      visibility: hidden;
+      left:40vw !important; 
+    }
+    .form_col{
+      left: 30%;
+    }
+    .icon_size{
+      font-size: 2vw !important;
+    }
+    .text_field{
+      height: 4vw !important;
+    }
+    textarea{
+      height: 8vw !important;
+      margin-top: 0.8vw !important;
+      padding-top: 0.2vw !important;
+    }
+    #open_button{
+      background-image: url('../assets/Mensager.svg');
+      background-size: cover;
+      min-width: 60px;
+      min-height: 60px;
+      width: 3vw;
+      height: 3vw;
+    }
+    #close_button{
+      min-width: 60px;
+      min-height: 60px;
+      width: 3vw;
+      height: 3vw;
+    }
+    #send_button{
+      min-width: 80px;
+      min-height: 60px;
+      width: 4vw;
+      height: 2vw;
+      font-size: 0.8vw !important;
+    }
+    .v-input{
+      font-size: 1vw !important;
+    }
+    .v-input input{
+      max-height: inherit !important;
+      padding-top: 0.5vw !important;
+      padding-bottom: 0.2vw !important;
+    }
+    .v-label{
+      font-size: 1vw !important;
+      height: 3vw !important;
+      padding-top: 0.7vw !important;
+    }
+    .v-text-field__slot{
+      padding-top: 0.2vw !important;
+    }
+    .v-messages{
+      font-size: 0.7vw !important;
+      padding-top: 0.3vw !important;
+      padding-bottom: 0.4vw !important;
+    }
+  }
+
+/* Stops animations */
+
+  .resize-animation-stopper :is(.animation_icons, .animation_logo, .animation_message) {
+    animation: none !important;
+    transition: none !important;
+  }
+
 </style>

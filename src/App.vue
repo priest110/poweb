@@ -1,5 +1,5 @@
 <template>
-  <v-app class="background_img" :class="$vuetify.breakpoint.xl || $vuetify.breakpoint.lg || $vuetify.breakpoint.md ? '' : ''">
+  <v-app class="background_img">
     <v-main>
       <HomePage/>
     </v-main>
@@ -22,9 +22,14 @@ export default {
 };
 </script>
 <style>
-.background_img {
-  background: url('assets/background.jpg') no-repeat center center fixed !important;
-  background-size: cover   !important;  
-}
+  .background_img {
+    background: url('assets/background.jpg') no-repeat center center fixed !important;
+    background-size: cover   !important;  
+  }
 
+  @media screen and (min-width:960px) {
+    .background_img {
+      min-height: 800px;
+    }
+  }
 </style>
