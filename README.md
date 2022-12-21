@@ -1,6 +1,6 @@
 # Poweb
 
-Project developed to Poweb, a digital marketing company of Braga.
+Project developed for Poweb, a digital marketing company of Braga.
 
 ## Project setup
 ```
