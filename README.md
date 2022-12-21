@@ -1,5 +1,7 @@
 # Poweb
 
+Project developed to Poweb, a digital marketing company of Braga.
+
 ## Project setup
 ```
 npm install
