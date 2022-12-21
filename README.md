@@ -3,4 +3,8 @@
   
 </div>
 
-Project developed for Poweb, a digital marketing company of Braga.
+This project arose from a challenge issued by a Poweb (Braga-based digital marketing company) designer named Francisco Pires to build a single page application as a maintenance solution for the Poweb website.
+
+## :zap: Credits
+
+Francisco deserves credit for producing the wonderful designs that I used to create this work. 
